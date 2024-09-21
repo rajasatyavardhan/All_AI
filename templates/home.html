@@ -24,13 +24,14 @@
             <h2>Results for "{{ query }}":</h2>
             <ul>
                 {% for tool in tools %}
-                    <li>{{ tool }}</li>
+                    <li><a href="{{ tool.url }}" target="_blank">{{ tool.name }}</a></li>
                 {% endfor %}
             </ul>
         {% else %}
             <h2>No tools found for "{{ query }}"</h2>
         {% endif %}
     </div>
+    
     {% endif %}
 
     <footer>
