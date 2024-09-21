@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>ALL AI</h1>
+    </header>
+
+    <div class="search-container">
+        <form action="/search" method="get">
+            <input type="text" name="query" placeholder="Search for AI tools..." required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    {% if query %}
+    <div class="results">
+        {% if tools %}
+            <h2>Results for "{{ query }}":</h2>
+            <ul>
+                {% for tool in tools %}
+                    <li>{{ tool }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h2>No tools found for "{{ query }}"</h2>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <footer>
+        <p>© 2024 ALL AI - Your go-to for AI tools</p>
+    </footer>
+</body>
+</html>
